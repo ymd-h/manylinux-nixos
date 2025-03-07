@@ -42,6 +42,7 @@
         ignoreCollisions = true;
       };
 
+      default = "manylinux2014";
     in rec {
       lib = pkgs.lib.attrsets.mapAttrs
         (name: libraries: {
@@ -56,6 +57,8 @@
           (name: libraries: lib.${name}.mkShell {})
           libso
       ) // {
+        default = lib.${default}.mkShell {};
+
         # For nixos/nix container: https://hub.docker.com/r/nixos/nix
         test = lib.manylinux2014.mkShell {
           extraPackages = [

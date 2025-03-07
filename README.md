@@ -30,7 +30,7 @@ Minimal configuration is following;
 Simple manylinux development shell can start by following command;
 
 ```shell
-nix --experimental-features "nix-command flakes" develop -L github:ymd-h/manylinux-nixos#manylinux2014
+nix --experimental-features "nix-command flakes" develop -L github:ymd-h/manylinux-nixos
 ```
 
 [uv](https://docs.astral.sh/uv/) is installed,
@@ -74,7 +74,7 @@ An example `flake.nix` is following;
     lib = manylinux.lib.${system};
   in
   {
-    devShells.${system}.default = lb.mkShell {
+    devShells.${system}.default = lb.manylinux2014.mkShell {
       extraPackages = [ pkgs.actionlint ];
     };
   };
