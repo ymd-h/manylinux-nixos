@@ -80,3 +80,15 @@ An example `flake.nix` is following;
   };
 }
 ```
+
+
+## Pros & Cons
+
+
+- Pros
+  - Widely available prebuild manylinux wheels can be used without any patches
+  - Ordinary package manager like uv can be used.
+    - We recommend to use uv since uv itself isn't written by Python.
+- Cons
+  - No Nix-based reproducibility
+    - This can be mitigated by using [uv's lock mechanism](https://docs.astral.sh/uv/concepts/projects/sync/)
