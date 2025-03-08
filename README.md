@@ -74,7 +74,7 @@ An example `flake.nix` is following;
     lib = manylinux.lib.${system};
   in
   {
-    devShells.${system}.default = lb.manylinux2014.mkShell {
+    devShells.${system}.default = lib.manylinux2014.mkShell {
       extraPackages = [ pkgs.actionlint ];
     };
   };
