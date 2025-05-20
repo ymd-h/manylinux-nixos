@@ -11,19 +11,7 @@
 
       libso = {
         # See: https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/interpreters/python/manylinux/default.nix
-        manylinux2014 = with pkgs; [
-          glibc
-          stdenv.cc.cc
-          xorg.libX11
-          xorg.libXext
-          xorg.libXrender
-          xorg.libICE
-          xorg.libSM
-          libGL
-          glib
-          zlib
-          expat
-        ];
+        manylinux2014 = pkgs.pythonManylinuxPackages.manylinux2014;
       };
 
       # Ref: https://github.com/NixOS/nixpkgs/blob/nixos-24.11/nixos/modules/config/ldso.nix
